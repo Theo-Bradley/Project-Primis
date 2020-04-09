@@ -9,6 +9,7 @@ public class ProjectileFlare : MonoBehaviour
     public int resolution = 4;
     private LineRenderer line;
     #endregion
+    [Space(10)]
     #region Prediction Formula
     public Vector2 velocity;
     public float yLimit;
@@ -16,22 +17,42 @@ public class ProjectileFlare : MonoBehaviour
     public Transform launchTarget;
     public float strengthMultiplier = 1;
     #endregion
+    [Space(10)]
     #region Linecast
     [Range(1, 32)]
     public int linecastResolution = 4;
     public LayerMask canHit;
+    #endregion
+    [Space(10)]
+    #region Flare Spawning
+    public GameObject flarePrefab;
+    private bool pingPong;
+    public KeyCode SpawnKey;
     #endregion
 
     private void Start()
     {
         g = Mathf.Abs(Physics2D.gravity.y);
         line = gameObject.GetComponent<LineRenderer>();
+        pingPong = true;
     }
 
     private void Update()
     {
+        yLimit = -Mathf.Abs(yLimit);
         velocity = (launchTarget.position - transform.position) * strengthMultiplier;
         StartCoroutine(RenderArc());
+        if (Input.GetKeyDown(SpawnKey))
+        {
+            if (pingPong)
+            {
+                var prefabRef = Instantiate(flarePrefab);
+                prefabRef.transform.position = transform.position;
+                prefabRef.GetComponent<Rigidbody2D>().velocity = velocity;
+            }
+        }
+        if (Input.GetKeyUp(SpawnKey))
+            pingPong = true;
     }
 
     private IEnumerator RenderArc()
