@@ -55,11 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Aim.cs" />
      <Compile Include="Assets\Scripts\ClickToSpawn.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Flare.cs" />
      <Compile Include="Assets\Scripts\FlareLight.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
+     <Compile Include="Assets\Scripts\ProjectileFlare.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>G:/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
