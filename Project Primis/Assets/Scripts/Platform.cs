@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    
     void Start()
     {
         
@@ -17,5 +18,9 @@ public class Platform : MonoBehaviour
     public void isLit(bool isLit)
     {
         transform.gameObject.layer = 0; //set collision layer to 0 so it can collide with everything but an object in the "invisible" layer
+
+        
+
+        
     }
 }
