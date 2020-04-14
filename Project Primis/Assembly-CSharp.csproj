@@ -70,25 +70,39 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Scripts\ClickToSpawn.cs" />
-    <Compile Include="Assets\Scripts\Flare.cs" />
-    <Compile Include="Assets\Scripts\FlareLight.cs" />
-    <Compile Include="Assets\Scripts\Platform.cs" />
-    <Compile Include="Assets\Scripts\camerafollow.cs" />
+    <Compile Include="Assets\Scripts\enemies\Enemy.cs" />
+    <Compile Include="Assets\Scripts\flares\Aim.cs" />
+    <Compile Include="Assets\Scripts\flares\ClickToSpawn.cs" />
+    <Compile Include="Assets\Scripts\flares\ProjectileFlare.cs" />
+    <Compile Include="Assets\Scripts\flares\flare.cs" />
+    <Compile Include="Assets\Scripts\misc\camerafollow.cs" />
+    <Compile Include="Assets\Scripts\platforms\platform.cs" />
     <Compile Include="Assets\Scripts\playermovment\improvedjump.cs" />
     <Compile Include="Assets\Scripts\playermovment\movement.cs" />
     <Compile Include="Assets\dasheffect\Scripts\GhostingContainer.cs" />
     <Compile Include="Assets\dasheffect\Scripts\GhostingSprite.cs" />
     <None Include="Assets\dasheffect\Resources\Art\Materials\Shaders\SkeletonGhostShader.shader" />
     <None Include="Assets\DOTween\readme.txt" />
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
@@ -98,6 +112,12 @@
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -116,6 +136,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -141,8 +164,14 @@
     <Reference Include="Unity.2D.Animation.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/savin/OneDrive/Documents/GitHub/Project-Primis/Project Primis/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

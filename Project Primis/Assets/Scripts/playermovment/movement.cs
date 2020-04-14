@@ -373,7 +373,6 @@ public class movement : MonoBehaviour
 
     [Header("polish")]
     public ParticleSystem dust;
-    public ParticleSystem jumpparticles;
     public ParticleSystem walljumpparticles;
 
 
