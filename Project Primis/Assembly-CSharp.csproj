@@ -75,6 +75,8 @@
     <Compile Include="Assets\Scripts\flares\ClickToSpawn.cs" />
     <Compile Include="Assets\Scripts\flares\ProjectileFlare.cs" />
     <Compile Include="Assets\Scripts\flares\flare.cs" />
+    <Compile Include="Assets\Scripts\misc\InputManager.cs" />
+    <Compile Include="Assets\Scripts\misc\Oxygen_Slider.cs" />
     <Compile Include="Assets\Scripts\misc\camerafollow.cs" />
     <Compile Include="Assets\Scripts\platforms\platform.cs" />
     <Compile Include="Assets\Scripts\playermovment\improvedjump.cs" />

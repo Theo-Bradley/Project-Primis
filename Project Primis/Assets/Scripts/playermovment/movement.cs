@@ -108,7 +108,7 @@ public class movement : MonoBehaviour
 
 
         //jump input
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(InputManager.IM.jump))
         {
             //if on ground then normal jump
             if (onGround)
@@ -154,7 +154,7 @@ public class movement : MonoBehaviour
 
 
         //if right click then dash
-        if (Input.GetMouseButtonDown(0)&& hasdashed == false)
+        if (Input.GetKeyDown(InputManager.IM.dash) && hasdashed == false)
         {
             if (xRaw != 0 || yRaw != 0)
             {
