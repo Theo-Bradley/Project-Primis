@@ -3,32 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class flare : MonoBehaviour
+public class Flare : MonoBehaviour
 {
     private Light2D flarelight;
+   
     private void Start()
     {
         flarelight = GetComponentInParent<Light2D>();
+        
     }
-    private void Awake()
-    {
-        StartCoroutine(flicker());
-    }
-
-    IEnumerator flicker()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.2f);
-            //flarelight.intensity = Random.Range(0.8f, 1.5f);
-            flarelight.pointLightOuterRadius = Random.Range(4.85f, 5);
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {       
+    void OnTriggerEnter2D(Collider2D collision)
+    {   
+        //if collided with trigger that is a platform then turn on platform
         if(collision.gameObject.CompareTag("platform"))
         {
-            platform plat = collision.GetComponent<platform>();
+            Platform plat = collision.GetComponent<Platform>();
 
             if (plat != null)
             {
@@ -36,5 +25,4 @@ public class flare : MonoBehaviour
             }
         }
     }
-
 }

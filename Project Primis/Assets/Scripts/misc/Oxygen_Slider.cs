@@ -8,7 +8,7 @@ public class Oxygen_Slider : MonoBehaviour
 
     public Slider slider;
     public Gradient air;
-    public void SetMaxOxygen(int Oxygen)
+    public void SetMaxOxygen(float Oxygen)
     {
         slider.maxValue = Oxygen;
         slider.value = Oxygen;
@@ -16,7 +16,7 @@ public class Oxygen_Slider : MonoBehaviour
 
 
 
-    public void SetOxygen (int Oxygen)
+    public void SetOxygen (float Oxygen)
     {
         slider.value = Oxygen;
     }

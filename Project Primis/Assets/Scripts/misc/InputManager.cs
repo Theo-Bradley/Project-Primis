@@ -15,7 +15,6 @@ public class InputManager : MonoBehaviour
 
     //access with InputMnager.IM.(keyname)
 
-
     void Awake()
     {
         //Singleton pattern
