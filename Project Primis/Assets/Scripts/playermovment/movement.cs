@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;     //needed for tweening
 using Assets.Scripts.game.sfx;  // used for dash ffect
-public class movement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     //basic vars
     private Rigidbody2D rb;
     private improvedjump improvedjump;
     private SpriteRenderer sr;
     private GhostingContainer gh;
+    private Playeranimation anim;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         improvedjump = GetComponent<improvedjump>();
         sr = GetComponent<SpriteRenderer>();
         gh = GetComponent<GhostingContainer>();
+        anim = GetComponent<Playeranimation>();
     }
 
 
@@ -66,7 +68,6 @@ public class movement : MonoBehaviour
         //draws the circles for easier adjusting in scene 
         Gizmos.color = debugCollisionColor;
 
-        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
 
         Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, bottomcollisionRadius);
         Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, sidecollisionRadius);
@@ -91,7 +92,8 @@ public class movement : MonoBehaviour
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
 
-        
+
+        anim.SetHorizontalMovement(x, y, rb.velocity.y);
         Vector2 dir = new Vector2(x, y);
   
 
@@ -110,6 +112,7 @@ public class movement : MonoBehaviour
         //jump input
         if (Input.GetKeyDown(InputManager.IM.jump))
         {
+            anim.SetTrigger("jump");
             //if on ground then normal jump
             if (onGround)
             {
@@ -169,6 +172,21 @@ public class movement : MonoBehaviour
             isdashing = false;
             hasdashed = false;
         }
+        if (x > 0)
+        {
+            side = 1;
+            anim.Flip(side);
+        }
+        if (x < 0)
+        {
+            side = -1;
+            anim.Flip(side);
+        }
+
+        if(onGround && dir == Vector2.zero)
+        {
+            anim.SetTrigger("idle");
+        }
     }
 
 
@@ -189,17 +207,21 @@ public class movement : MonoBehaviour
     public float climbspeed;
     public float dashspeed;
     public float dragincrease;
-   
+    public int side = 1;
+
     [Space]
 
     [Header("Movementbools")]
     public bool canmove;
-    private bool iswallsliding;
+    [HideInInspector]
+    public bool iswallsliding;
     private bool walljumped;
     private bool groundtouch;
-    private bool isclimbing;
+    [HideInInspector]
+    public bool isclimbing;
     private bool wallclimb;
-    private bool isdashing;
+    [HideInInspector]
+    public bool isdashing;
     private bool hasdashed;
     
 
@@ -257,11 +279,18 @@ public class movement : MonoBehaviour
     //slides down when against a wall
     void Wallslide()
     {
+        if (wallSide != side)
+        {
+            anim.Flip(side * -1);
+        }
         if (!canmove)
+        {
             return;
-
+        }
         if (!isclimbing)
+        {
             return;
+        }
 
         bool pushingWall = false;
         if ((rb.velocity.x > 0 && onRightWall) || (rb.velocity.x < 0 && onLeftWall))
@@ -277,6 +306,12 @@ public class movement : MonoBehaviour
     //the ability to jump of a wall
     void Walljump()
     {
+        if ((side == 1 && onRightWall) || side == -1 && !onRightWall)
+        {
+            side *= -1;
+            anim.Flip(side);
+        }
+
         StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 
@@ -293,8 +328,9 @@ public class movement : MonoBehaviour
         {
             Createwalljumparticles(walljumpparticles.transform.localScale.x);
         }
+        //-1 right
     }
-    //-1 right
+
 
     //landing effects
     void GroundTouch()
@@ -303,6 +339,7 @@ public class movement : MonoBehaviour
         hasdashed = false;
         Createdust();
         Camera.main.transform.DOShakePosition(.2f, .1f, 4, 5, false, true);
+        side = anim.sr.flipX ? -1 : 1;
     }
 
 
@@ -314,6 +351,7 @@ public class movement : MonoBehaviour
         
 
         hasdashed = true;
+        anim.SetTrigger("dash");
         gh.Init(20, 0.01f, sr, 1f);
 
 
@@ -332,7 +370,7 @@ public class movement : MonoBehaviour
         
 
         rb.gravityScale = 0;
-        GetComponent<improvedjump>().enabled = false;
+        improvedjump.enabled = false;
         walljumped = true;
         isdashing = true;
 
@@ -340,7 +378,7 @@ public class movement : MonoBehaviour
 
      
         rb.gravityScale = 1;
-        GetComponent<improvedjump>().enabled = true;
+        improvedjump.enabled = true;
         walljumped = false;
         isdashing = false;
     }
