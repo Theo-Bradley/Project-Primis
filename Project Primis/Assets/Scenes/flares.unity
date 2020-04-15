@@ -802,6 +802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5084afbb55874ee4690af0e8c81c1b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxIntensity: 1.25
+  minIntensity: 0
+  lerpTime: 1
 --- !u!4 &7263510782696114633
 Transform:
   m_ObjectHideFlags: 0
