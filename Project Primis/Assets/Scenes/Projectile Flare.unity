@@ -588,4 +588,7 @@ MonoBehaviour:
   linecastResolution: 16
   canHit:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 273
+  flarePrefab: {fileID: 2615464016029620390, guid: 031dabc3317646f4eb3ff3010895cd3c,
+    type: 3}
+  SpawnKey: 323
