@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\flares\Aim.cs" />
     <Compile Include="Assets\Scripts\flares\ClickToSpawn.cs" />
     <Compile Include="Assets\Scripts\flares\Flare.cs" />
+    <Compile Include="Assets\Scripts\flares\Flare_Counter.cs" />
     <Compile Include="Assets\Scripts\flares\ProjectileFlare.cs" />
     <Compile Include="Assets\Scripts\misc\InputManager.cs" />
     <Compile Include="Assets\Scripts\misc\Oxygen_Slider.cs" />

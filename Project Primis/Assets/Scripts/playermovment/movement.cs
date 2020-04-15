@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private SpriteRenderer sr;
     private GhostingContainer gh;
     private Playeranimation anim;
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
