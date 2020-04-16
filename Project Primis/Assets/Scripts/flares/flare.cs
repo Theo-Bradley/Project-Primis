@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Flare : MonoBehaviour
 {
     private Light2D flarelight;
-
+    
     public float minIntensity; //minimum intensity that the light will lerp to
     public float maxIntensity; //vice versa
     public float lerpTime; //time in seconds for the interpolation to complete

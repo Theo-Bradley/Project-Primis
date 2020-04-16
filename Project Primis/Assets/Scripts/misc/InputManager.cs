@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     public KeyCode dash;
     
 
-    //access with InputMnager.IM.(keyname)
+    //access with InputManager.IM.(keyname)
 
     void Awake()
     {
