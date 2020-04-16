@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Flares.unity
+- path: Assets/Scenes/Flare scene gang.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
