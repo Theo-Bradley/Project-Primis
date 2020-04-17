@@ -5,7 +5,6 @@ using UnityEngine;
 public class ClickToSpawn : MonoBehaviour
 {
     private Flare_Counter fc;
-
     public GameObject SpawnObject;
     public Vector2 TurnMax;
 
