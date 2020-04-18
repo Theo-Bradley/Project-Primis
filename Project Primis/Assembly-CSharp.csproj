@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\misc\InputManager.cs" />
     <Compile Include="Assets\Scripts\misc\Oxygen_Slider.cs" />
     <Compile Include="Assets\Scripts\misc\PlayerStatus.cs" />
+    <Compile Include="Assets\Scripts\misc\VirtualCursor.cs" />
     <Compile Include="Assets\Scripts\misc\camerafollow.cs" />
     <Compile Include="Assets\Scripts\platforms\Platform.cs" />
     <Compile Include="Assets\Scripts\playermovment\Movement.cs" />

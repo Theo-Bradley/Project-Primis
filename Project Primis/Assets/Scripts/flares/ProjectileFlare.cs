@@ -41,17 +41,22 @@ public class ProjectileFlare : MonoBehaviour
     {
         yLimit = -Mathf.Abs(yLimit);
         velocity = (launchTarget.position - transform.position) * strengthMultiplier;
-        StartCoroutine(RenderArc());
-        if (Input.GetKeyDown(SpawnKey))
+        
+        if (Input.GetKey(InputManager.IM.spawnFlare))
         {
             if (pingPong)
             {
-                var prefabRef = Instantiate(flarePrefab);
-                prefabRef.transform.position = transform.position;
-                prefabRef.GetComponent<Rigidbody2D>().velocity = velocity;
+                StartCoroutine(RenderArc());
+                
             }
         }
-        if (Input.GetKeyUp(SpawnKey))
+        if (Input.GetKeyUp(InputManager.IM.spawnFlare))
+        {
+            var prefabRef = Instantiate(flarePrefab);
+            prefabRef.transform.position = transform.position;
+            prefabRef.GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+            if (Input.GetKeyUp(InputManager.IM.spawnFlare))
             pingPong = true;
     }
 

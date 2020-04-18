@@ -8,16 +8,26 @@ public class InputManager : MonoBehaviour
     //used for singeleton
     public static InputManager IM;
 
+    [HideInInspector]
     public float xboxCont;
+    [HideInInspector]
     public float ps4Cont;
+    
+    [Header("Using Bools")]
+    public bool usingXB;
+    public bool usingPS;
+    public bool usingKBM;
 
-    public float sens;
-
-    //put buttons here
+    [Header("current Binds")]
+    //dont change this
     public KeyCode jump;
     public KeyCode spawnFlare;
     public KeyCode dash;
-    
+
+    [Header("Controller")]
+    //controller values
+    public float contsens;
+    public float contdeadzone;
 
     //access with InputManager.IM.(keyname)
 
@@ -37,12 +47,13 @@ public class InputManager : MonoBehaviour
     }
 
 
-    private void Update()
+    //in fixed update for optimization
+    private void FixedUpdate()
     {
+        //check if ps4 or xbox controllers are connected
         string[] names = Input.GetJoystickNames();
         for (int x = 0; x < names.Length; x++)
         {
-            print(names[x].Length);
             if (names[x].Length == 19)
             {
                 print("PS4 CONTROLLER IS CONNECTED");
@@ -59,24 +70,32 @@ public class InputManager : MonoBehaviour
             }
             if(names[x].Length == 0)
             {
+                print("No Controllers connected");
                 ps4Cont = 0;
                 xboxCont = 0;
             }
         }
 
-
+        //if connected
         if (xboxCont == 1)
         {
+            usingXB = true;
+            usingPS = false;
+            usingKBM = false;
             Xboxsetup();
-
-            
         }
         else if (ps4Cont== 1)
         {
-            //do something
+            usingXB = false;
+            usingPS = true;
+            usingKBM = false;
+            PsSetup();
         }
         else if(xboxCont ==0 && ps4Cont ==0)
         {
+            usingXB = false;
+            usingPS = false;
+            usingKBM = true;
             Keyboardsetup();
         }
     }
@@ -94,5 +113,8 @@ public class InputManager : MonoBehaviour
         dash = KeyCode.Mouse0;
         spawnFlare = KeyCode.Mouse1;
     }
-    
+    void PsSetup()
+    {
+        //whatever ps4 keys
+    }
 }
