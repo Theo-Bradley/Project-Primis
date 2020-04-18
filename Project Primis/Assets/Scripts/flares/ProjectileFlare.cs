@@ -47,14 +47,16 @@ public class ProjectileFlare : MonoBehaviour
             if (pingPong)
             {
                 StartCoroutine(RenderArc());
-                
+                line.enabled = true;
             }
         }
         if (Input.GetKeyUp(InputManager.IM.spawnFlare))
         {
+            line.enabled = false;
             var prefabRef = Instantiate(flarePrefab);
             prefabRef.transform.position = transform.position;
             prefabRef.GetComponent<Rigidbody2D>().velocity = velocity;
+            
         }
             if (Input.GetKeyUp(InputManager.IM.spawnFlare))
             pingPong = true;
