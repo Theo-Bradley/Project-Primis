@@ -9,7 +9,7 @@ public class Aim : MonoBehaviour
     public Transform vc;
     void Update()
     {
-        if (InputManager.IM.usingXB)
+        if (InputManager.IM.usingcontroller)
         {
             vc.gameObject.SetActive(true);
             transform.position = vc.position;

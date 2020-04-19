@@ -8,6 +8,9 @@ public class InputManager : MonoBehaviour
     //used for singeleton
     public static InputManager IM;
 
+    [Header("system")]
+    public float updateRate = 3; //interval of when input type is checked
+
     [HideInInspector]
     public float xboxCont;
     [HideInInspector]
@@ -17,6 +20,7 @@ public class InputManager : MonoBehaviour
     public bool usingXB;
     public bool usingPS;
     public bool usingKBM;
+    public bool usingcontroller;
 
     [Header("current Binds")]
     //dont change this
@@ -28,9 +32,18 @@ public class InputManager : MonoBehaviour
     //controller values
     public float contsens;
     public float contdeadzone;
+    [HideInInspector]
+    public float RX;
+    [HideInInspector]
+    public float RY;
 
     //access with InputManager.IM.(keyname)
 
+    private void Start()
+    {
+        //invokes method for optimization purposes
+        InvokeRepeating("Inputchecker", 0, updateRate);
+    }
 
     void Awake()
     {
@@ -46,9 +59,25 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        usingcontroller = usingXB || usingPS;
 
-    //in fixed update for optimization
-    private void FixedUpdate()
+        //easy to use axises, RX and RY are the two axises of the right anlog stick (left stick = Vertical and Horizontal)
+        if (usingXB)
+        {
+            RX = Input.GetAxis("xboxXR");
+            RY = Input.GetAxis("xboxYR");
+        }
+        if (usingPS)
+        {
+            RX = Input.GetAxis("psXR");
+            RY = Input.GetAxis("psYR");
+        }
+    }
+
+
+    private void Inputchecker()
     {
         //check if ps4 or xbox controllers are connected
         string[] names = Input.GetJoystickNames();
@@ -68,7 +97,7 @@ public class InputManager : MonoBehaviour
                 xboxCont = 1;
 
             }
-            if(names[x].Length == 0)
+            if (names[x].Length == 0)
             {
                 print("No Controllers connected");
                 ps4Cont = 0;
@@ -82,39 +111,43 @@ public class InputManager : MonoBehaviour
             usingXB = true;
             usingPS = false;
             usingKBM = false;
-            Xboxsetup();
+
         }
-        else if (ps4Cont== 1)
+        else if (ps4Cont == 1)
         {
             usingXB = false;
             usingPS = true;
             usingKBM = false;
-            PsSetup();
+
         }
-        else if(xboxCont ==0 && ps4Cont ==0)
+        else if (xboxCont == 0 && ps4Cont == 0)
         {
             usingXB = false;
             usingPS = false;
             usingKBM = true;
-            Keyboardsetup();
         }
+
+        Binds();
     }
 
-    void Xboxsetup()
+    void Binds()
     {
-        jump = KeyCode.Joystick1Button0;
-        dash = KeyCode.Joystick1Button5;
-        spawnFlare = KeyCode.Joystick1Button2;
-    }
-
-    void Keyboardsetup()
-    {
-        jump = KeyCode.Space;
-        dash = KeyCode.Mouse0;
-        spawnFlare = KeyCode.Mouse1;
-    }
-    void PsSetup()
-    {
-        //whatever ps4 keys
+        //binds go here
+        if (usingXB)
+        {
+            jump = KeyCode.Joystick1Button0;
+            dash = KeyCode.Joystick1Button5;
+            spawnFlare = KeyCode.Joystick1Button2;
+        }
+        if (usingKBM)
+        {
+            jump = KeyCode.Space;
+            dash = KeyCode.Mouse0;
+            spawnFlare = KeyCode.Mouse1;
+        }
+        if (usingPS)
+        {
+            //whatever
+        }
     }
 }

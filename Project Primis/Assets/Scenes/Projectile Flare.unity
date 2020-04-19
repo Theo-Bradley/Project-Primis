@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 1559209597}
   - component: {fileID: 1559209596}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Input manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,6 +624,8 @@ MonoBehaviour:
   dash: 0
   contsens: 0.5
   contdeadzone: 0.5
+  RX: 0
+  RY: 0
 --- !u!4 &1559209597
 Transform:
   m_ObjectHideFlags: 0

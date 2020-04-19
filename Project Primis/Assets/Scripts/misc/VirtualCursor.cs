@@ -6,8 +6,8 @@ public class VirtualCursor : MonoBehaviour
 {
     private void Update()
     {
-        float x = Input.GetAxis("xboxXR");
-        float y = Input.GetAxis("xboxYR");
+        float x = InputManager.IM.RX;
+        float y = InputManager.IM.RY;
         Vector2 dir = new Vector2(x, y);
 
         if(x>InputManager.IM.contdeadzone || x < -InputManager.IM.contdeadzone || y> InputManager.IM.contdeadzone || y< -InputManager.IM.contdeadzone)
