@@ -30,36 +30,42 @@ public class ProjectileFlare : MonoBehaviour
     public KeyCode SpawnKey;
     #endregion
 
+    private bool pressed = false;
+
     private void Start()
     {
         g = Mathf.Abs(Physics2D.gravity.y);
         line = gameObject.GetComponent<LineRenderer>();
-        pingPong = true;
+        line.enabled = false;
     }
 
-    private void Update()
+    void Update()
     {
         yLimit = -Mathf.Abs(yLimit);
         velocity = (launchTarget.position - transform.position) * strengthMultiplier;
-        
-        if (Input.GetKey(InputManager.IM.spawnFlare))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (pingPong)
-            {
-                StartCoroutine(RenderArc());
-                line.enabled = true;
-            }
+            pressed = true;
         }
-        if (Input.GetKeyUp(InputManager.IM.spawnFlare))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
+            pressed = false;
             line.enabled = false;
             var prefabRef = Instantiate(flarePrefab);
             prefabRef.transform.position = transform.position;
             prefabRef.GetComponent<Rigidbody2D>().velocity = velocity;
-            
+
         }
-            if (Input.GetKeyUp(InputManager.IM.spawnFlare))
-            pingPong = true;
+        if (pressed)
+        {
+            Debug.Log("line");
+            StartCoroutine(RenderArc());
+            line.enabled = true;
+        }
+
+        if (!pressed)
+        {
+        }
     }
 
     private IEnumerator RenderArc()
