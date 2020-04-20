@@ -113,7 +113,7 @@ public class Movement : MonoBehaviour
         //jump input
         if (Input.GetKeyDown(InputManager.IM.jump))
         {
-            anim.SetTrigger("jump");
+            anim.SetTrigger("Jump");
             //if on ground then normal jump
             if (onGround)
             {
