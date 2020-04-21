@@ -43,11 +43,11 @@ public class ProjectileFlare : MonoBehaviour
     {
         yLimit = -Mathf.Abs(yLimit);
         velocity = (launchTarget.position - transform.position) * strengthMultiplier;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(InputManager.IM.spawnFlare))
         {
             pressed = true;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(InputManager.IM.spawnFlare))
         {
             pressed = false;
             line.enabled = false;
@@ -61,10 +61,6 @@ public class ProjectileFlare : MonoBehaviour
             Debug.Log("line");
             StartCoroutine(RenderArc());
             line.enabled = true;
-        }
-
-        if (!pressed)
-        {
         }
     }
 

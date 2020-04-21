@@ -8,42 +8,66 @@ public class InputManager : MonoBehaviour
     //used for singeleton
     public static InputManager IM;
 
+    #region system
     [Header("system")]
     public float updateRate = 3; //interval of when input type is checked
-
     [HideInInspector]
     public float xboxCont;
     [HideInInspector]
     public float ps4Cont;
-    
+    #endregion
+
+    #region usingbools
     [Header("Using Bools")]
     public bool usingXB;
     public bool usingPS;
     public bool usingKBM;
     public bool usingcontroller;
+    #endregion
 
+    #region currentbinds
     [Header("current Binds")]
     //dont change this
     public KeyCode jump;
     public KeyCode spawnFlare;
     public KeyCode dash;
+    #endregion
 
+    #region controller
     [Header("Controller")]
     //controller values
     public float contsens;
     public float contdeadzone;
+
+    //right analog
     [HideInInspector]
     public float RX;
     [HideInInspector]
     public float RY;
 
+    //triggers
+    [HideInInspector]
+    public float LT;
+    [HideInInspector]
+    public float RT;
+
+    [HideInInspector]
+    public bool rtPressed;
+    [HideInInspector]
+    public bool ltPressed;
+
+    #endregion
+
+
     //access with InputManager.IM.(keyname)
+
 
     private void Start()
     {
         //invokes method for optimization purposes
         InvokeRepeating("Inputchecker", 0, updateRate);
     }
+
 
     void Awake()
     {
@@ -59,6 +83,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         usingcontroller = usingXB || usingPS;
@@ -68,11 +93,34 @@ public class InputManager : MonoBehaviour
         {
             RX = Input.GetAxis("xboxXR");
             RY = Input.GetAxis("xboxYR");
+            //triggers
+            LT = Input.GetAxis("xboxLT");
+            RT = Input.GetAxis("xboxRT");
         }
         if (usingPS)
         {
             RX = Input.GetAxis("psXR");
             RY = Input.GetAxis("psYR");
+            //triggers
+            LT = Input.GetAxis("psLT");
+            RT = Input.GetAxis("psRT");
+        }
+        //trigger presses
+        if(RT > 0)
+        {
+            rtPressed = true;
+        }
+        else
+        {
+            rtPressed = false;
+        }
+        if (LT > 0)
+        {
+            ltPressed = true;
+        }
+        else
+        {
+            ltPressed = false;
         }
     }
 
@@ -129,6 +177,7 @@ public class InputManager : MonoBehaviour
 
         Binds();
     }
+
 
     void Binds()
     {

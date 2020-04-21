@@ -265,6 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b0fc0f0c0e65946925a67998f30633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 3
+  center: {fileID: 1118809980}
 --- !u!4 &350673454
 Transform:
   m_ObjectHideFlags: 0
@@ -614,11 +616,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6664475bbcec6c4419950ffe870e6f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateRate: 3
   xboxCont: 0
   ps4Cont: 0
   usingXB: 0
   usingPS: 0
   usingKBM: 0
+  usingcontroller: 0
   jump: 0
   spawnFlare: 0
   dash: 0
@@ -626,6 +630,11 @@ MonoBehaviour:
   contdeadzone: 0.5
   RX: 0
   RY: 0
+  LT: 0
+  RT: 0
+  rtPressed: 0
+  ltPressed: 0
+  stickmovmentR: 0
 --- !u!4 &1559209597
 Transform:
   m_ObjectHideFlags: 0
