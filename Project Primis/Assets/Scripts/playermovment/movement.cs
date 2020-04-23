@@ -99,8 +99,8 @@ public class Movement : MonoBehaviour
   
 
         //wallclimbing
-        wallclimb = onWall && Input.GetAxis("Vertical") > 0;
-        if (wallclimb)
+        isclimbing = onWall && Input.GetAxis("Vertical") > 0;
+        if (isclimbing)
         {
             rb.velocity = new Vector2(rb.velocity.x, y * speed);
         }
@@ -218,9 +218,8 @@ public class Movement : MonoBehaviour
     public bool iswallsliding;
     private bool walljumped;
     private bool groundtouch;
-    [HideInInspector]
+    //[HideInInspector]
     public bool isclimbing;
-    private bool wallclimb;
     [HideInInspector]
     public bool isdashing;
     private bool hasdashed;

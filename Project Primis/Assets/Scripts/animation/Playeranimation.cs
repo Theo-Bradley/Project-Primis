@@ -22,7 +22,7 @@ public class Playeranimation : MonoBehaviour
         anim.SetBool("onground", move.onGround);
         anim.SetBool("onWall", move.onWall);
         anim.SetBool("onRightWall", move.onRightWall);
-        anim.SetBool("wallGrab", move.isclimbing);
+        anim.SetBool("wallClimb", move.isclimbing);
         anim.SetBool("wallSlide", move.iswallsliding);
         anim.SetBool("canMove", move.canmove);
         anim.SetBool("isDashing", move.isdashing);
