@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -912,6 +912,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3545532746540272914}
+  defaultSize: 5
+  maxSize: 5
+  zoomSpeed: 0
   offset: {x: 0, y: 0, z: -1}
 --- !u!114 &1664272008
 MonoBehaviour:
@@ -1124,7 +1127,7 @@ MonoBehaviour:
   canHit:
     serializedVersion: 2
     m_Bits: 273
-  flarePrefab: {fileID: 2891850010157275421, guid: 4ce567b03f714b14f8a9612f9d6fa04a,
+  flarePrefab: {fileID: 4013461253488895272, guid: 4201ec6c247c220408064a3ba758611e,
     type: 3}
   SpawnKey: 323
 --- !u!120 &46728852509116246
@@ -10996,3 +10999,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
+  arm: {fileID: 0}
