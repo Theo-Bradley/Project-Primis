@@ -218,7 +218,7 @@ public class Movement : MonoBehaviour
     public bool iswallsliding;
     private bool walljumped;
     private bool groundtouch;
-    //[HideInInspector]
+    [HideInInspector]
     public bool isclimbing;
     [HideInInspector]
     public bool isdashing;

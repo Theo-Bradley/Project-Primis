@@ -23,6 +23,8 @@ void Awake()
     {
         Destroy(gameObject);
     }
+
+        Cursor.visible = false;
 }
 
 }

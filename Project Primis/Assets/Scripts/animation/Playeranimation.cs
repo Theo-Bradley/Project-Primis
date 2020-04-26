@@ -8,11 +8,12 @@ public class Playeranimation : MonoBehaviour
     private Movement move;
     [HideInInspector]
     public SpriteRenderer sr;
+    public Transform arm;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-   
+        
         move = GetComponent<Movement>();
         sr = GetComponent<SpriteRenderer>();
     }
@@ -57,6 +58,9 @@ public class Playeranimation : MonoBehaviour
 
         bool state = (side == 1) ? false : true;
         sr.flipX = state;
+        
     }
+
+    
 }
 
