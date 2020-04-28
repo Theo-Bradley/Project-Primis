@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\flares\Aim.cs" />
     <Compile Include="Assets\Scripts\flares\ClickToSpawn.cs" />
+    <Compile Include="Assets\Scripts\flares\CrateRefill.cs" />
     <Compile Include="Assets\Scripts\flares\Flare.cs" />
     <Compile Include="Assets\Scripts\flares\Flare_Counter.cs" />
     <Compile Include="Assets\Scripts\flares\ProjectileFlare.cs" />

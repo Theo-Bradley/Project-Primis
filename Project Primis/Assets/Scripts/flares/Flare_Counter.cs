@@ -10,12 +10,20 @@ public class Flare_Counter : MonoBehaviour
 
     void Update()
     {
+
         FlareDisplay.text = flares.ToString();
-        if (Input.GetKeyDown (InputManager.IM.spawnFlare) && !isthrowing && flares > 0)
+        if (Input.GetKeyUp (InputManager.IM.spawnFlare) && !isthrowing && flares > 0)
         {
             isthrowing = true;
-            flares--;
+            StartCoroutine(thrown());
             isthrowing = false;
         }
+    }
+
+    //added a delay so it worked as a projectile
+    IEnumerator thrown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        flares--;
     }
 }

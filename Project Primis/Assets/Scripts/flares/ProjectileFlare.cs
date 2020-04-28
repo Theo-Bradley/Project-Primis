@@ -30,6 +30,8 @@ public class ProjectileFlare : MonoBehaviour
     public KeyCode SpawnKey;
     #endregion
 
+    private Flare_Counter fc;
+
     private bool pressed = false;
 
     private void Start()
@@ -37,6 +39,7 @@ public class ProjectileFlare : MonoBehaviour
         g = Mathf.Abs(Physics2D.gravity.y);
         line = gameObject.GetComponent<LineRenderer>();
         line.enabled = false;
+        fc = GetComponent<Flare_Counter>();
     }
 
     void Update()
@@ -51,10 +54,12 @@ public class ProjectileFlare : MonoBehaviour
         {
             pressed = false;
             line.enabled = false;
+        }
+        if (Input.GetKeyUp(InputManager.IM.spawnFlare) && fc.flares > 0)
+        {
             var prefabRef = Instantiate(flarePrefab);
             prefabRef.transform.position = transform.position;
             prefabRef.GetComponent<Rigidbody2D>().velocity = velocity;
-
         }
         if (pressed)
         {
