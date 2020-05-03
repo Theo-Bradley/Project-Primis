@@ -7,7 +7,7 @@ public class PlayerStatus : MonoBehaviour
 {
     public Oxygen_Slider oBar;
     public CanvasGroup img;
-
+    public GameObject refilltooltip;
     [Space]
 
     public float maxoxygen;
@@ -57,4 +57,28 @@ public class PlayerStatus : MonoBehaviour
     {
         
     }
-}
+
+    //crate refills
+    private void OnCollisionStay2D(Collision2D collision)
+    { 
+        if (collision.gameObject.CompareTag("crateRefill") && collision.gameObject.GetComponent<CrateRefill>().flaresAvailable >0)
+        {
+            refilltooltip.transform.position = collision.transform.position + new Vector3(0, 2, 0);
+            refilltooltip.SetActive(true);
+            Debug.Log("oof1");
+            if (Input.GetKeyDown(InputManager.IM.interact))
+            {
+
+                collision.gameObject.GetComponent<CrateRefill>().Refill();
+
+            }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("crateRefill"))
+        {
+            refilltooltip.SetActive(false);
+        }
+    }
+}   

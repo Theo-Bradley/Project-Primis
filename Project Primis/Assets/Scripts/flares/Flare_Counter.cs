@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Flare_Counter : MonoBehaviour
 {
+    public int maxflares;
     public int flares;
     public bool isthrowing;
     public Text FlareDisplay;
@@ -26,4 +27,5 @@ public class Flare_Counter : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         flares--;
     }
+
 }

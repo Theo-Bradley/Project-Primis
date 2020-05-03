@@ -10,7 +10,7 @@ public class InputManager:MonoBehaviour
     public KeyCode jump;
     public KeyCode spawnFlare;
     public KeyCode dash;
-
+    public KeyCode interact;
 void Awake()
 {
     //Singleton pattern

@@ -8,7 +8,6 @@ public class Playeranimation : MonoBehaviour
     private Movement move;
     [HideInInspector]
     public SpriteRenderer sr;
-    public Transform arm;
 
     void Start()
     {
@@ -22,9 +21,9 @@ public class Playeranimation : MonoBehaviour
     {
         anim.SetBool("onground", move.onGround);
         anim.SetBool("onWall", move.onWall);
-        anim.SetBool("onRightWall", move.onRightWall);
+        //anim.SetBool("onRightWall", move.onRightWall);
         anim.SetBool("wallClimb", move.isclimbing);
-        anim.SetBool("wallSlide", move.iswallsliding);
+        //anim.SetBool("wallSlide", move.iswallsliding);
         anim.SetBool("canMove", move.canmove);
         anim.SetBool("isDashing", move.isdashing);
 
