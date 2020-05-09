@@ -66,7 +66,7 @@ public class PlayerStatus : MonoBehaviour
             refilltooltip.transform.position = collision.transform.position + new Vector3(0, 2, 0);
             refilltooltip.SetActive(true);
             Debug.Log("oof1");
-            if (Input.GetKeyDown(InputManager.IM.interact))
+            if (Input.GetKey(InputManager.IM.interact))
             {
 
                 collision.gameObject.GetComponent<CrateRefill>().Refill();
